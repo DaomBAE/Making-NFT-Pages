@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import NftCard from "./NftCard";
-import { Button, ButtonGroup, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 
 const Nfts = ({ page }) => {
   const [selectedPage, setSelectedPage] = useState(1);
@@ -40,16 +40,18 @@ const Nfts = ({ page }) => {
 
     for (let i = 0; i < page; i++) {
       pageArray.push(
-        <Button
+        <button
           key={i}
-          variant={i + 1 === selectedPage ? "solid" : "outline"}
+          className={`ml-4 text-2xl font-bold hover:text-black ${
+            i + 1 === selectedPage ? "text-black" : "text-gray-400"
+          }`}
           onClick={onClickPage(i + 1)}>
-          {i + 1} 페이지
-        </Button>
+          {i + 1} <span className="text-base">Page</span>
+        </button>
       );
     }
 
-    return <ButtonGroup>{pageArray}</ButtonGroup>;
+    return pageArray;
   };
 
   useEffect(() => {

@@ -9,7 +9,7 @@ import {
   ListItem,
   Text,
 } from "@chakra-ui/react";
-import { ImWink } from "react-icons/im";
+import { FcChargeBattery } from "react-icons/fc";
 import { AiFillHeart } from "react-icons/ai";
 import { BiWallet } from "react-icons/bi";
 import axios from "axios";
@@ -55,18 +55,26 @@ const Header = ({ account, setAccount }) => {
       maxW="screen.xl"
       mx="auto"
       px={4}
+      color="blackAlpha.800"
       justify="space-between"
       align="center"
       fontWeight="semibold">
       <Link to="/">
         <Flex align="center" color="main">
-          <ImWink size={28} />
-          <Heading as="h1" size="xl" ml={1}>
-            Chiki Chiki Boom
+          <Heading
+            as="h1"
+            size="2xl"
+            mr={1}
+            ml={5}
+            mt={5}
+            mb={5}
+            style={{ flexShrink: 0 }}>
+            Rice Ball World
           </Heading>
+          <FcChargeBattery size={46} />
         </Flex>
       </Link>
-      <Flex align="center">
+      <Flex mr={4} align="center">
         {coinPrice && (
           <List display="flex" color="gray.400" fontSize="sm">
             {coinPrice.map((v, i) => {
@@ -117,7 +125,7 @@ const Header = ({ account, setAccount }) => {
                 alignItems="center">
                 <BiWallet />
               </Box>
-              <Text sm={2}>Connect</Text>
+              <Text ml={1}>Connect</Text>
             </Flex>
           </Button>
         )}

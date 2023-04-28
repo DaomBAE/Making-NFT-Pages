@@ -82,32 +82,32 @@ const Main = ({ account }) => {
     }
   };
 
-  const buyNft = async (nftAmount) => {
-    try {
-      if (!contract || !account) return;
+  // const buyNft = async (nftAmount) => {
+  //   try {
+  //     if (!contract || !account) return;
 
-      // 사용자 계정 잔액 확인
-      const balance = await web3.eth.getBalance(account);
-      const price = await contract.methods.price().call();
+  //     // 사용자 계정 잔액 확인
+  //     const balance = await web3.eth.getBalance(account);
+  //     const price = await contract.methods.price().call();
 
-      // 충분한 자금 확인
-      if (parseInt(balance) < parseInt(price) * parseInt(nftAmount)) {
-        alert("잔액이 부족합니다.");
-        return;
-      }
+  //     // 충분한 자금 확인
+  //     if (parseInt(balance) < parseInt(price) * parseInt(nftAmount)) {
+  //       alert("잔액이 부족합니다.");
+  //       return;
+  //     }
 
-      // NFT 구매
-      await contract.methods.buy(nftAmount).send({
-        from: account,
-        value: parseInt(price) * parseInt(nftAmount),
-      });
+  //     // NFT 구매
+  //     await contract.methods.buy(nftAmount).send({
+  //       from: account,
+  //       value: parseInt(price) * parseInt(nftAmount),
+  //     });
 
-      getMyNft();
-      getMintedNft();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     getMyNft();
+  //     getMintedNft();
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   useEffect(() => {
     getTotalNft();
@@ -139,7 +139,7 @@ const Main = ({ account }) => {
         totalNft={totalNft}
         mintedNft={mintedNft}
         myNft={myNft}
-        buyNft={buyNft}
+        // buyNft={buyNft}
       />
       <Nfts
         nfts={nfts}
@@ -153,7 +153,7 @@ const Main = ({ account }) => {
           value={buyNftAmount}
           onChange={updateBuyNftAmount}
         />
-        <button onClick={() => buyNft(buyNftAmount)}>구매</button>
+        {/* <button onClick={() => buyNft(buyNftAmount)}>구매</button> */}
       </div>
     </>
   );
