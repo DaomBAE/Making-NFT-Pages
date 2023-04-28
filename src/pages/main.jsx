@@ -81,7 +81,7 @@ const Main = ({ account }) => {
       console.error(error);
     }
   };
-
+  //****** 또다른 리믹스 컨트랙트 코드필요 (지금 불가능)
   // const buyNft = async (nftAmount) => {
   //   try {
   //     if (!contract || !account) return;
@@ -153,7 +153,7 @@ const Main = ({ account }) => {
           value={buyNftAmount}
           onChange={updateBuyNftAmount}
         />
-        {/* <button onClick={() => buyNft(buyNftAmount)}>구매</button> */}
+        {/* <button onClick={() => buyNft(buyNftAmount)}>Buy</button> */}
       </div>
     </>
   );
